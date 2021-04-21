@@ -1,0 +1,49 @@
+﻿@page
+@model WebApplication1.Pages.WeatherPage.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Weather</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Weather.city" class="control-label"></label>
+                <input asp-for="Weather.city" class="form-control" />
+                <span asp-validation-for="Weather.city" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Weather.weather" class="control-label"></label>
+                <input asp-for="Weather.weather" class="form-control" />
+                <span asp-validation-for="Weather.weather" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weather.temperature" class="control-label"></label>
+                <input asp-for="Weather.temperature" class="form-control" />
+                <span asp-validation-for="Weather.temperature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weather.time" class="control-label"></label>
+                <input asp-for="Weather.time" class="form-control" />
+                <span asp-validation-for="Weather.time" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

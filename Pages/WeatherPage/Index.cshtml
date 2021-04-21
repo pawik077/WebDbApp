@@ -1,0 +1,54 @@
+﻿@page
+@model WebApplication1.Pages.WeatherPage.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Weather[0].city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weather[0].weather)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weather[0].temperature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weather[0].time)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Weather) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weather)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.temperature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.time)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
